@@ -14,29 +14,35 @@
 </head>
 
 <body>
-    <!--Scores container-->
-    <div class="container" id="scores-container">Scores</div>
-    <!--Logo container-->
-    <div class="container" id="logo-container">Logo</div>
-    <!--Life line container-->
-    <div class="container" id="life-line-container">Life line</div>
+    <!--Millionaire container-->
+    <div class="container" id="scores-container">
+        <div class="row">
+            <!--Scores container-->
+            <div class="col-4">Scores</div>
+            <!--Logo container-->
+            <div class="col-4"><img src="./assets/Images/millionaire-logo.webp" alt="Millionaire logo" class="img-fluid"></div>
+            <!--Life line container-->
+            <div class="col-4">Lifelines</div>
+        </div>
+    </div>
+    
     <!--Quiz Container-->
-    <div class="container" id="quiz-container">
+    <div class="container text-center p-5" id="quiz-container">
         <div class="row">
             <!--Question-->
-            <div class="col" id="question-box"></div>
+            <div class="col" id="question-box">Question</div>
         </div>
         <div class="row answer-row">
             <!--Answer A-->
-            <div class="col-6 answer-box" id="answer-A"></div>
+            <button type="button" class="col-6 btn answer-box" id="answer-A">answer-A</button>
             <!--Answer B-->
-            <div class="col-6 answer-box" id="answer-b"></div>
+            <button type="button" class="col-6 btn answer-box" id="answer-b">answer-b</button>
         </div>
         <div class="row answer-row">
             <!--Answer C-->
-            <div class="col-6 answer-box" id="answer-C"></div>
+            <button type="button" class="col-6 btn answer-box" id="answer-C">answer-C</button>
             <!--Answer D-->
-            <div class="col-6 answer-box" id="answer-D"></div>
+            <button type="button" class="col-6 btn answer-box" id="answer-D">answer-D</button>
         </div>
     </div>
 

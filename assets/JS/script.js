@@ -1,5 +1,5 @@
-questions = [{
-    question: 'What is the capital of France?',
+var questions = [{
+    question: 'What is the capital of FrENCHIESA?',
     answerA: 'Moscow',
     answerB: 'Paris',
     answerC: 'Leon',
@@ -14,19 +14,30 @@ questions = [{
     result: 'answerD'
 }];
 
-document.addEventListener('DOMContentLoaded', function(){
-    let buttonA = document.getElementsByID('answer-A').addEventListener('click', checkAnswers(answerA));
-    let buttonB = document.getElementsByID('answer-B').addEventListener('click', checkAnswers(answerB));
-    let buttonC = document.getElementsByID('answer-C').addEventListener('click', checkAnswers(answerC));
-    let buttonD = document.getElementsByID('answer-D').addEventListener('click', checkAnswers(answerD));
-})
+function setup() {
+    // Wait for the DOM to finish loading before running the game
+    // Get the button elements and add event listeners to them
 
-checkAnswers(answer){
-    if (answer === question.result){
-        console.log('correct');
-    }else{
-        console.log('incorrect');
-    }
+    document.addEventListener("DOMContentLoaded", function () {
+        let buttons = document.getElementsByClassName('answer-box');
 
-    
+        for (let button of buttons) {
+            button.addEventListener('click', function () {
+                let answerType = this.getAttribute('id');
+                checkAnswer(answerType);
+            });
+        }
+    })
 }
+
+function checkAnswer(type) {
+    alert(type);
+}
+
+function main() {
+    document.getElementById('question-box').innerText = questions[0].question;
+}
+
+// Main program
+setup();
+main();

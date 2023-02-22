@@ -128,16 +128,59 @@ var currentQuestion = 0;
 function setup() {
 
     // setup all the button listeners for the answer choices
-    let buttons = document.getElementsByClassName('answer-box');
+    // let buttons = document.getElementsByClassName('answer-box');
 
     document.getElementById('answer-A').addEventListener('click', aPressed);
     document.getElementById('answer-B').addEventListener('click', bPressed);
     document.getElementById('answer-C').addEventListener('click', cPressed);
     document.getElementById('answer-D').addEventListener('click', dPressed);
 
+    document.getElementById('life-line-A').addEventListener('click', remove2Answers);
+    document.getElementById('life-line-B').addEventListener('click', skipQuestion);
+    document.getElementById('life-line-C').addEventListener('click', goAgain);
     // load up the first quesitons
     loadQuestion(0);
 }
+
+function remove2Answers(num) {
+    let lifeLineId = num;
+
+    let random = String.fromCharCode(64 + Math.floor(Math.random() * 4) + 1)
+    let removed2 = 0;
+    console.log(random1, random2)
+    do{
+        if (random !== questions[currentQuestion].result) {
+            alert(random);
+            let blank1 = document.getElementById(`answer-${random}`)
+            blank1.classList.add("used-blocker");
+            removed2++;
+        } 
+    }while(removed2 != 2);
+    
+
+    // if (random2 !== questions[currentQuestion].result) {
+    //     alert(random2);
+    //     let blank2 = document.getElementById(`answer-${random2}`)
+    //     blank2.classList.add("used-blocker");
+    // }
+    // else {
+        
+    // }
+    // } else if (random2 !== random1 &&  questions[currentQuestion].result){
+    //     let blank2 = document.getElementById(`answer-${random2}`)
+    //     blank2.classList.add("used-blocker");
+    // }
+
+}
+
+function skipQuestion() {
+
+}
+
+function goAgain() {
+
+}
+
 
 function aPressed() {
     checkAnswer('A');
@@ -189,15 +232,15 @@ function loadQuestion(questionNumber) {
     removeLastScore(score);
 }
 
-function increaseScore(score){
+function increaseScore(score) {
     let currentScore = score;
     let cashPrize = document.getElementById(`money${currentScore}`);
     cashPrize.classList.add("currentCash");
 
 }
 
-function removeLastScore(score){
-    let lastScore = score-1;
+function removeLastScore(score) {
+    let lastScore = score - 1;
     let removePrize = document.getElementById(`money${lastScore}`);
     removePrize.classList.remove('currentCash');
 

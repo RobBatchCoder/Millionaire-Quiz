@@ -193,14 +193,14 @@ function increaseScore(score){
     let currentScore = score;
     let cashPrize = document.getElementById(`money${currentScore}`);
     cashPrize.classList.add("currentCash");
-    alert(`current score: ${currentScore} `);
+
 }
 
 function removeLastScore(score){
     let lastScore = score-1;
     let removePrize = document.getElementById(`money${lastScore}`);
     removePrize.classList.remove('currentCash');
-    alert(`remove last score`);
+
 }
 // Main program
 setup();

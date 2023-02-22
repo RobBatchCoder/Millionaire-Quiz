@@ -10,3 +10,7 @@ body{
 .currentCash{
     border: 2px solid white;
 }
+
+.life-lines{
+    border-radius: 25px;
+}

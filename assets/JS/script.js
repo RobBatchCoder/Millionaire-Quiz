@@ -161,6 +161,7 @@ function checkAnswer(letter) {
     if (answer === letter) {
         score++;
         currentQuestion++
+        increaseScore(score);
     } else {
         gameOver()
     }
@@ -174,11 +175,8 @@ function checkAnswer(letter) {
 
 }
 
-
-
 function gameOver() {
-    alert('you fuckefd');
-    window.close();
+    alert('you fucked');
 }
 
 function loadQuestion(questionNumber) {
@@ -188,9 +186,21 @@ function loadQuestion(questionNumber) {
     document.getElementById('answer-C').innerText = questions[questionNumber].C;
     document.getElementById('answer-D').innerText = questions[questionNumber].D;
 
+    removeLastScore(score);
 }
 
+function increaseScore(score){
+    let currentScore = score;
+    let cashPrize = document.getElementById(`money${currentScore}`);
+    cashPrize.classList.add("currentCash");
+    alert(`current score: ${currentScore} `);
+}
 
-
+function removeLastScore(score){
+    let lastScore = score-1;
+    let removePrize = document.getElementById(`money${lastScore}`);
+    removePrize.classList.remove('currentCash');
+    alert(`remove last score`);
+}
 // Main program
 setup();

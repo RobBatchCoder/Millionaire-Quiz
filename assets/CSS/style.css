@@ -6,3 +6,7 @@ body{
     background-color: #4f2951;
     color: aliceblue;
 }
+
+.currentCash{
+    border: 2px solid white;
+}

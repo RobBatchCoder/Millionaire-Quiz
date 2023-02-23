@@ -125,6 +125,7 @@ var questions = [{
 var score = 0;
 var currentQuestion = 0;
 
+
 function setup() {
 
     // setup all the button listeners for the answer choices
@@ -153,14 +154,22 @@ function remove2Answers() {
             removed2.push(random);
         }
     } while (removed2.length !== 2)
-    
+    //removes 2 inccorect answers from view
     let blank1 = document.getElementById(`answer-${removed2[0]}`)
     let blank2 = document.getElementById(`answer-${removed2[1]}`)
     blank1.classList.add("used-blocker");
     blank2.classList.add("used-blocker");
-
+    //removes lifeline button once used
+    let removeButton = document.getElementById('life-line-A');
+    removeButton.classList.add("used-blocker");
     alert(removed2);
-    return removed2;
+}
+
+function removeBlocker(removed2) {
+    let removeBlank1 = document.getElementById(`answer-${removed2[0]}`)
+    let removeBlank2 = document.getElementById(`answer-${removed2[1]}`)
+    removeBlank1.classList.remove("used-blocker");
+    removeBlank2.classList.remove("used-blocker");
 }
 
 function skipQuestion() {
@@ -214,13 +223,22 @@ function gameOver() {
 
 function loadQuestion(questionNumber) {
     //Load next question
+
+    document.getElementById('answer-A').classList.remove("used-blocker");
+    document.getElementById('answer-B').classList.remove("used-blocker");
+    document.getElementById('answer-C').classList.remove("used-blocker");
+    document.getElementById('answer-D').classList.remove("used-blocker");
+
+
     document.getElementById('question-box').innerText = questions[questionNumber].question;
     document.getElementById('answer-A').innerText = questions[questionNumber].A;
     document.getElementById('answer-B').innerText = questions[questionNumber].B;
     document.getElementById('answer-C').innerText = questions[questionNumber].C;
     document.getElementById('answer-D').innerText = questions[questionNumber].D;
 
+
     removeLastScore(score);
+   
 }
 
 function increaseScore(score) {
@@ -231,8 +249,9 @@ function increaseScore(score) {
 }
 
 function removeLastScore(score) {
-    let lastScore = score - 1;
+    let lastScore = score - 1;alert('qqqqq');
     let removePrize = document.getElementById(`money${lastScore}`);
+    alert('ppppp');
     removePrize.classList.remove('currentCash');
 
 }

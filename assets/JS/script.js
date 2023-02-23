@@ -142,35 +142,25 @@ function setup() {
     loadQuestion(0);
 }
 
-function remove2Answers(num) {
-    let lifeLineId = num;
+function remove2Answers() {
 
-    let random = String.fromCharCode(64 + Math.floor(Math.random() * 4) + 1)
-    let removed2 = 0;
-    console.log(random1, random2)
-    do{
-        if (random !== questions[currentQuestion].result) {
+    let removed2 = [];
+
+    do {
+        let random = String.fromCharCode(64 + Math.floor(Math.random() * 4) + 1)
+        if (random !== questions[currentQuestion].result && random !== removed2[0]) {
             alert(random);
-            let blank1 = document.getElementById(`answer-${random}`)
-            blank1.classList.add("used-blocker");
-            removed2++;
-        } 
-    }while(removed2 != 2);
+            removed2.push(random);
+        }
+    } while (removed2.length !== 2)
     
+    let blank1 = document.getElementById(`answer-${removed2[0]}`)
+    let blank2 = document.getElementById(`answer-${removed2[1]}`)
+    blank1.classList.add("used-blocker");
+    blank2.classList.add("used-blocker");
 
-    // if (random2 !== questions[currentQuestion].result) {
-    //     alert(random2);
-    //     let blank2 = document.getElementById(`answer-${random2}`)
-    //     blank2.classList.add("used-blocker");
-    // }
-    // else {
-        
-    // }
-    // } else if (random2 !== random1 &&  questions[currentQuestion].result){
-    //     let blank2 = document.getElementById(`answer-${random2}`)
-    //     blank2.classList.add("used-blocker");
-    // }
-
+    alert(removed2);
+    return removed2;
 }
 
 function skipQuestion() {
@@ -223,6 +213,7 @@ function gameOver() {
 }
 
 function loadQuestion(questionNumber) {
+    //Load next question
     document.getElementById('question-box').innerText = questions[questionNumber].question;
     document.getElementById('answer-A').innerText = questions[questionNumber].A;
     document.getElementById('answer-B').innerText = questions[questionNumber].B;

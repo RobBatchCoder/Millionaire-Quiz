@@ -203,6 +203,7 @@ function checkAnswer(letter) {
         score++;
         currentQuestion++
         increaseScore(score);
+        winGame(score);
     } else {
         gameOver(score)
     }
@@ -249,6 +250,13 @@ function removeLastScore(score) {
     let removePrize = document.getElementById(`money${lastScore}`);
     removePrize.classList.remove('currentCash');
 
+}
+
+function winGame(score){
+    if (score === 15){
+        alert("You're a Millionaire")
+        gameOver();
+    }
 }
 // Main program
 setup();

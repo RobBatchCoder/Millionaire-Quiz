@@ -136,9 +136,15 @@ function setup() {
     document.getElementById('answer-C').addEventListener('click', cPressed);
     document.getElementById('answer-D').addEventListener('click', dPressed);
 
-    document.getElementById('life-line-A').addEventListener('click', remove2Answers);
-    document.getElementById('life-line-B').addEventListener('click', skipQuestion);
-    document.getElementById('life-line-C').addEventListener('click', goAgain);
+    document.getElementById('life-line-A').addEventListener('click', function () {
+        remove2Answers(), removeButton("A")
+    });
+    document.getElementById('life-line-B').addEventListener('click', function () {
+        remove2Answers(), removeButton("B")
+    });
+    document.getElementById('life-line-C').addEventListener('click', function () {
+        remove2Answers(), removeButton("C")
+    });
     // load up the first quesitons
     loadQuestion(0);
 }
@@ -159,8 +165,12 @@ function remove2Answers() {
     let blank2 = document.getElementById(`answer-${removed2[1]}`)
     blank1.classList.add("used-blocker");
     blank2.classList.add("used-blocker");
+
+}
+
+function removeButton(button) {
     //removes lifeline button once used
-    let removeButton = document.getElementById('life-line-A');
+    let removeButton = document.getElementById(`life-line-${button}`);
     removeButton.classList.add("used-blocker");
     alert(removed2);
 }
@@ -238,7 +248,7 @@ function loadQuestion(questionNumber) {
 
 
     removeLastScore(score);
-   
+
 }
 
 function increaseScore(score) {
@@ -249,9 +259,8 @@ function increaseScore(score) {
 }
 
 function removeLastScore(score) {
-    let lastScore = score - 1;alert('qqqqq');
+    let lastScore = score - 1;
     let removePrize = document.getElementById(`money${lastScore}`);
-    alert('ppppp');
     removePrize.classList.remove('currentCash');
 
 }

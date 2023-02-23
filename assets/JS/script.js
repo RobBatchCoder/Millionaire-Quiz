@@ -7,12 +7,12 @@ var questions = [{
         result: 'B'
     },
     {
-        question: 'What are the three primary colours?',
-        A: 'Red, Yellow, Blue',
-        B: 'Red, Green, Yellow',
-        C: 'White, Black, Gold',
-        D: 'Red, Green, Blue',
-        result: 'D'
+        question: 'What is the name of the traditional Japanese sword with a slight curve used by a Samurai?',
+        A: 'Tekken',
+        B: 'Katana',
+        C: 'Kama',
+        D: 'Kusarigama',
+        result: 'B'
     },
 
     {
@@ -88,12 +88,12 @@ var questions = [{
         result: 'C'
     },
     {
-        question: 'Which famous inventor invented the telephone?',
-        A: 'Thomas Edison',
-        B: 'Benjamin Franklin',
-        C: 'Alexander Graham Bell',
-        D: 'Nikola Tesla',
-        result: 'C'
+        question: 'Jeff Bezos is the founder of which billion dollar company?',
+        A: 'Apple',
+        B: 'Subway',
+        C: 'Tesla',
+        D: 'Amazon',
+        result: 'D'
     },
     {
         question: 'Which famous inventor invented the telephone?',
@@ -156,7 +156,6 @@ function remove2Answers() {
     do {
         let random = String.fromCharCode(64 + Math.floor(Math.random() * 4) + 1)
         if (random !== questions[currentQuestion].result && random !== removed2[0]) {
-            alert(random);
             removed2.push(random);
         }
     } while (removed2.length !== 2)
@@ -172,7 +171,6 @@ function removeButton(button) {
     //removes lifeline button once used
     let removeButton = document.getElementById(`life-line-${button}`);
     removeButton.classList.add("used-blocker");
-    alert(removed2);
 }
 
 function removeBlocker(removed2) {
@@ -181,15 +179,6 @@ function removeBlocker(removed2) {
     removeBlank1.classList.remove("used-blocker");
     removeBlank2.classList.remove("used-blocker");
 }
-
-function skipQuestion() {
-
-}
-
-function goAgain() {
-
-}
-
 
 function aPressed() {
     checkAnswer('A');
@@ -215,20 +204,17 @@ function checkAnswer(letter) {
         currentQuestion++
         increaseScore(score);
     } else {
-        gameOver()
+        gameOver(score)
     }
-
-    // update the progress graphics
-
-    // update score on screen
-
     // load next question
     loadQuestion(currentQuestion)
 
 }
 
 function gameOver() {
-    alert('you fucked');
+    alert('Game Over');
+
+    location.reload();
 }
 
 function loadQuestion(questionNumber) {

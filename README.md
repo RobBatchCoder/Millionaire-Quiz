@@ -4,18 +4,20 @@ Visit a live version of the site: https://robbatchcoder.github.io/Millionaire-Qu
 ## Contents
 
 * [Project Description](#project-description)
-* [User Experience](#user-experience)
 * [Creation Process](#creation-process)
 * [Design](#design)
     * [Colour Scheme](#colour-scheme)
     * [Logo](#logo)
-    * [Typography](#typography)
     * [Imagery](#imagery)
+* [Existing Features](#existing-features)
+
+    *[Score tracker](#score-tracker)
+
+    *[Life lines](#life-lines)
+
+    *[Question and answers section](#quesion-and-answers-section)
+    
 * [Responsive design](#responsive-design)
-    * [Desktop, tablet and mobile differences](#desktop-tablet-and-mobile-differences)
-    * [Tablet view](#tablet-view)
-    * [Mobile view](#mobile-view)
-* [Future Features](#future-features)
 * [Technologies used](#technologies-used)  
     * [Languages used](#languages-used)
     * [Frameworks, libraries & programs used](#frameworks-libraries--programs-used)
@@ -26,11 +28,6 @@ Visit a live version of the site: https://robbatchcoder.github.io/Millionaire-Qu
 # Project Description
 The project's goal was to create an interactive quiz game in the style of the popular TV game show, Who wants to be a millionaire.
 Utalising HTML, CSS and Javascript the project both reads and writes to the DOM to create the interactive experience.
-
-# User Experience
-## Primary Goal
-
-
 
 # Creation Process
  
@@ -154,33 +151,32 @@ The project was deployed on GitHub Pages.
 ![GitHub pages deploy page](assets/images/git-hub-pages.png)
 
 # Testing
-Using the lighthouse testing facility on Google Chrome highlighted a number of issues. 
+Using the lighthouse testing facility on Google Chrome highlighted some issues. These were then resolved to improve score.
 
 ## 1. Performance
-
+Performance score is high.
 
 ## 2. Accessibility
-
+Alt tags were added to improve accesability rating on Chrome lighthouse test.
 
 ## 3. Best Practices
-
+Meta tag description was added to improve score on Chrome lighthouse test.
 
 ## 4. Search engine optimization
+Search engine optimisation is good.
 
-
-![Wireframe image](assets/readme-files/lighthouse-test.png)
+![Light house results](assets/images/lighthouse-test-results.png)
 
 ## HTML Validator
+The W3 HTML validator highligted no errors.
 
-
-![HTML validator](assets/readme-files/html-validator.png)
+![HTML validator](assets/images/html-validator-result.png)
 
 ## CSS Validator
 
-To test html code the html validator https://validator.w3.org/. The CSS page was tested improved until the validator 
-returned 0 errors.
+The W3 CSS validator highted no errors.
 
-![HTML validator](assets/readme-files/css-validator.png)
+![HTML validator](assets/images/css-validator-results.png)
 
 # Acknowledgements
 

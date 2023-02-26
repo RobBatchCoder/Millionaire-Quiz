@@ -209,7 +209,6 @@ function checkAnswer(letter) {
     }
     // load next question
     loadQuestion(currentQuestion)
-
 }
 
 function gameOver() {

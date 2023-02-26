@@ -1,4 +1,4 @@
-![Logo image](assets/images/manzuko-logo.avif)
+![Logo image](assets/images/millionaire-logo.webp)
 # Who wants to be a millionaire game 
 Visit a live version of the site: https://robbatchcoder.github.io/Manzuko-restaurant/
 ## Contents
@@ -56,12 +56,12 @@ the quiz questions and answers places at the bottom of the view window.
 
 
 ## 5. Wireframe 
-![Wireframe image](assets/Images/millionaire-wireframe.png)
+![Wireframe image](assets/images/millionaire-wireframe.png)
 
 # Design
 ## Colour Scheme
 
-![Palette image](assets/Images/millionaire-palette.png)
+![Palette image](assets/images/millionaire-palette.png)
 
 ## Logo
 
@@ -83,43 +83,64 @@ All images were taken from https://stock.adobe.com/uk/. These are all free licen
 
 # Existing Features
 
-## Navigation Bar
+## Score tracker
+
+ ![Score Tracker HTML](assets/images/score-tracker.png)
+
+### Code
+As the global score variable is updated the increase score function adds a class to the next prize in the HTML, this class has border styling in the CSS. As the score iterates the "removeLastScore" function removes the previously assigned score from the HTML element.
+
+![Increase score function](assets/images/increaseScore-function.png)
+
+![Remove last score function](assets/images/removeLastScore-function.png)
+
+## Life lines
+
+ ![Life lines](assets/images/lifelines-buttons.png)
+
+### Code
+The "removeButton" function permanently removes the life line button once pressed so that it cannot be used again on each further questions. The Id of each button is sent to the function so that specific button is removed while the others remain.  
+
+![Remove button function](assets/images/removeButton-function.png)
+
+The "removed2Answers" function is triggered when the life line button is pressed. It generates a random number, converts it into a character and tests that character against the character representing the correct answer to the question. If it doesn't match the correct answer, that character is pushed into a string. The (Do, while) loop contiues until the string contains 2 characters, neither of which match the correct answer. These characters are then assigned to the GetElementById
+function which adds the blocker class to the corresponding answer boxing, thus removing them from the users view.
+
+![Remove 2 answers function](assets/images/remove2Answers-function.png)
 
 
-## Carousel
+## Question and answers section
+![Question and answers section](assets/images/question-section.png)
 
+### Code
+The set up function initialses the event listeners for all the buttons used in the program. This function also calls the 
+"loadQuestions" functions with the first question in the "questions" object.
 
-## Restaurant description section
+![Set up function](assets/images/setup-function.png)
 
+The button pressed functions pass the answer box values to the "checkAnswers" function.
 
-## Reservation booking
+![Button pressed function](assets/images/buttonPressed-function.png)
 
+The check answer function compares the user responce against the result value-property pair in the questions object. If correct this function iterates the score and current question global variables. It also sends the updates score to the scoreIncrease funtion. If incorrect this function calls the game over function. Finally this funtion will load the next question.
 
-## Menu links
+![Check answers function](assets/images/check-answers.png)
 
+The "loadQuestion" function takes the current question global variable and loads the corresponding qution from the questions object.  
 
-## Gallery
+![Load question function](assets/images/loadQuestion-function.png)
 
+The "gameOver" funtion is run when the user inputs an incorrect answers, it alerts that user with a gameover message then resets the game to the start.
 
-## Contact form
+![Gameover function](assets/images/gameOver-Function.png)
 
+The "winGame" function is won when the score variable reaches 15, meaning the player has answered all question correctly. This function then alerts the user they have won and resets the game.
 
-## Footer section
+![Win game function](assets/images/wingame-function.png)
 
 
 # Responsive design
-## Desktop, tablet and mobile differences
-
-## Desktop view
-
-
-## Tablet view
-
-
-## Mobile view
-
-
-# Future features
+The game utalises the Bootstrap frameworks grid system to create a responsive design. 
   
 
 # Technologies used
@@ -130,7 +151,6 @@ All images were taken from https://stock.adobe.com/uk/. These are all free licen
 
 ## Frameworks, libraries & programs used
 * Bootstrap 5.2.3
-* Hover.css - Used for button animation
 * Cooler.co - Used to create colour palette
 * Figma - Used for wireframing
 * Chrome Dev tools - Used for trouble shooting
@@ -139,7 +159,7 @@ All images were taken from https://stock.adobe.com/uk/. These are all free licen
 * Wix - Used to create logo
 * GitHub - Used for version control 
 * GitPod - Cloud IDE and dev ops
-* Adobe.stock - Used to source images.
+* Google images - Used to source images.
 
 # Deployment
 The project was deployed on GitHub Pages.
